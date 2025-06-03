@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ProductCard from "./ProductCard";
-import { getBestSellerProducts } from "../services/api";
+import ProductCard from "../../components/HomePage/ProductCard";
+import { getBestSellerProducts } from "../../services/api";
 
 function BestSellerProducts() {
   const [products, setProducts] = useState([]);

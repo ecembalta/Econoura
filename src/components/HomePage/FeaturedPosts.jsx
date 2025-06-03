@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import PostCard from "./PostCard";
-import { getFeaturedPosts } from "../services/api";
+import PostCard from "../../components/HomePage/PostCard";
+import { getFeaturedPosts } from "../../services/api";
 
 export default function FeaturedPosts() {
   const [posts, setPosts] = useState([]);

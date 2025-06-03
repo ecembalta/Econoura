@@ -1,9 +1,9 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getHeroSliderData, getSliderData } from "../services/api";
+import { getHeroSliderData, getSliderData } from "../../services/api";
 
-const Slider = ({ isHero = true, height = "600px" }) => {
+const Slider = ({ isHero = true }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [slides, setSlides] = useState([]);
   const [loading, setLoading] = useState(true);

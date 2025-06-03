@@ -1,11 +1,10 @@
 import React from "react";
 import Layout from "../components/Layout";
-import "./Home.css";
-import Slider from "../components/Slider";
-import CategoryPick from "../components/CategoryPick";
-import BestSellerProducts from "../components/BestSellerProducts";
-import C2ASection from "../components/C2ASection";
-import FeaturedPosts from "../components/FeaturedPosts";
+import Slider from "../components/HomePage/Slider";
+import CategoryPick from "../components/HomePage/CategoryPick";
+import BestSellerProducts from "../components/HomePage/BestSellerProducts";
+import C2ASection from "../components/HomePage/C2ASection";
+import FeaturedPosts from "../components/HomePage/FeaturedPosts";
 function Home() {
   return (
     <Layout>

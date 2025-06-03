@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { getCategories } from "../services/api";
+import { getCategories } from "../../services/api";
 
-function ShopDropdown({ isOpen, onToggle, onMouseEnter, onMouseLeave }) {
+function ShopDropdown({ isOpen, onToggle }) {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Menu,
   User,
@@ -14,12 +14,13 @@ import {
   Twitter,
   Heart,
 } from "lucide-react";
-import ShopDropdown from "../components/ShopDropdown";
+import ShopDropdown from "../components/HomePage/ShopDropdown";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -56,21 +57,92 @@ function Header() {
       </div>
 
       {isMenuOpen && (
-        <div className="fixed top-[64px] left-0 w-full h-screen bg-white z-50 p-6 md:hidden">
-          <nav className="flex flex-col items-center space-y-6 text-neutral-500 text-3xl font-medium">
-            <Link to="/" className="hover:text-neutral-800">
+        <div className="top-[64px] left-0 w-full h-screen bg-white z-50 p-6 md:hidden flex flex-col text-[30px] items-center overflow-x-hidden">
+          <nav className="flex flex-col items-center space-y-6 text-[#737373] text-[30px] font-medium">
+            <Link
+              to="/"
+              className={`${
+                location.pathname === "/" ? "font-bold text-[#162542]" : ""
+              } hover:text-neutral-800`}
+            >
               Home
             </Link>
-            <Link to="/product" className="hover:text-neutral-800">
-              Product
+            <Link
+              to="/shop"
+              className={`${
+                location.pathname === "/shop" ? "font-bold text-[#162542]" : ""
+              } hover:text-neutral-800`}
+            >
+              Shop
             </Link>
-            <Link to="/pricing" className="hover:text-neutral-800">
-              Pricing
+            <Link
+              to="/about"
+              className={`${
+                location.pathname === "/about" ? "font-bold text-[#162542]" : ""
+              } hover:text-neutral-800`}
+            >
+              About
             </Link>
-            <Link to="/contact" className="hover:text-neutral-800">
+            <Link
+              to="/blog"
+              className={`${
+                location.pathname === "/blog" ? "font-bold text-[#162542]" : ""
+              } hover:text-neutral-800`}
+            >
+              Blog
+            </Link>
+            <Link
+              to="/contact"
+              className={`${
+                location.pathname === "/contact"
+                  ? "font-bold text-[#162542]"
+                  : ""
+              } hover:text-neutral-800`}
+            >
               Contact
             </Link>
+            <Link
+              to="/pages"
+              className={`${
+                location.pathname === "/pages" ? "font-bold text-[#162542]" : ""
+              } hover:text-neutral-800`}
+            >
+              Pages
+            </Link>
           </nav>
+          <div className="flex flex-col items-center gap-6 mt-10 text-[#23A6F0]">
+            <div className="flex gap-1">
+              <User size={32} />
+              <Link to="/login" className="hover:text-blue-500">
+                Login
+              </Link>
+              <span>/</span>
+              <Link to="/register" className="hover:text-blue-500">
+                Register
+              </Link>
+            </div>
+            <button className="text-[#23A6F0]">
+              <Search size={32} />
+            </button>
+            <Link
+              to="/cart"
+              className="relative flex flex-col items-center text-[#23A6F0]"
+            >
+              <ShoppingCart size={32} />
+              <span className="absolute top-0 right-0 text-xs font-bold">
+                1
+              </span>
+            </Link>
+            <Link
+              to="/wishlist"
+              className="relative flex flex-col items-center text-[#23A6F0]"
+            >
+              <Heart size={32} />
+              <span className="absolute top-0 right-0 text-xs font-bold">
+                1
+              </span>
+            </Link>
+          </div>
         </div>
       )}
 
